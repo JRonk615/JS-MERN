@@ -36,11 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-.header {
-  height: 15%;
-  width: 95%;
-  margin: 10px;
-  background-color: #6aa84f;
-  border: 2px solid black;
-}
