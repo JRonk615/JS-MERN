@@ -1,5 +1,6 @@
 import './App.css';
 import {useEffect, useState} from 'react';
+import axios from 'axios';
 
 function App() {
   const base_url = "https://pokeapi.co/api/v2/"
@@ -7,10 +8,10 @@ function App() {
 
 
   useEffect(() => {
-    fetch(base_url + "pokemon?limit=807")
+    axios.get(base_url + "pokemon?limit=807")
       .then((results) => {
-        console.log(results)
-        return results.json()
+        console.log(results.data)
+        return  results.data
       })
       .then((pokemon) => {
         console.log(pokemon)
