@@ -1,11 +1,20 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import axios from 'axios';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PersonForm from './components/PersonForm';
+import Main from './views/Main';
+import Detail from './components/Detail';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-            <PersonForm/>
+          	<BrowserRouter>
+              <Routes>
+	                <Route element={<Main/>} path="/" default />
+                  <Route element={<Detail/>} path= "/people/:id" />
+              </Routes>
+    	      </BrowserRouter>
     </div>
   );
 }
