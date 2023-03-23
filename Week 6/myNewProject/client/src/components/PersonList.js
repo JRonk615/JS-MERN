@@ -28,6 +28,7 @@ const PersonList = (props) => {
                             <p>{person.lastName}</p>
                             <p>{person.firstName}</p>
                             <Link to={`/people/${person._id}`}> {person.firstName}'s page</Link>
+                            <Link to={`/people/edit/${person._id}`}> Edit </Link>
                         </div>
                     )
                 })
