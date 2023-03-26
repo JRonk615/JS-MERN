@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import { Paper } from '@material-ui/core';
+
 const ProductList = (props) => {
     /* We deconstruct getter and setter which were passed down 
     via props by the parent component (app.js) to our child 

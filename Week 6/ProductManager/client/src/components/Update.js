@@ -27,7 +27,7 @@ const Update = (props) => {
         })
             .then(res => {
                 console.log(res);
-                navigate('/'); 
+                navigate('/'); // this will take us back to the Main.js
             })
             .catch(err => console.log(err))
     }

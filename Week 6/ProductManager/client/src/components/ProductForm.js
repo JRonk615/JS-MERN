@@ -6,6 +6,7 @@ const ProductForm = (props) => {
     const [title, setTitle] = useState(""); 
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
+    const [error, setError] = useState([]);
     //handler when the form is submitted
     const onSubmitHandler = (e) => {
         //prevent default behavior of the submit
@@ -21,11 +22,24 @@ const ProductForm = (props) => {
                 console.log(res.data);
                 setProduct([...product, res.data])
             })
-            .catch(err=>console.log(err))
+            .catch(err=> {
+                console.log(err)
+                const errorResponse = err.response.data.error;
+
+                const errorArr = [];
+                for (const key of Object.keys(errorResponse)) {
+                    errorArr.push(errorResponse[key].message)
+                }
+
+                setError(errorArr);
+
+            }
+                )
     }
     
     return (
         <form onSubmit={onSubmitHandler}>
+            {error.map((err, index) => <p key={index}>{err}</p>)}
             <p>
                 <label>title</label><br/>
                 {/* When the user types in this input, our onChange synthetic event 
